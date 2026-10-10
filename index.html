@@ -2,230 +2,196 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Cuby Dragon Vision — Real Dice SVG</title>
+    <title>Netcore</title>
     <style>
         body {
+            background-color: #050a05;
+            /* В качестве фона используется атмосферная текстура старых мониторов */
+            background-image: linear-gradient(rgba(0, 20, 0, 0.85), rgba(0, 20, 0, 0.85)), 
+                              url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            color: #bbccaa;
             font-family: Arial, sans-serif;
-            background: #000;
-            color: #4B3DA6;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 {
-            color: #4B3DA6;
-            margin-bottom: 30px;
-            animation: pulse 2s infinite;
-        }
-        .dice-box {
-            background: #111;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 10px auto;
-            max-width: 600px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            border: 1px solid #4B3DA6;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .dice-selector {
+            font-size: 13px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        .dice-item {
-            background: #222;
-            color: #4B3DA6;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
-        }
-        .dice-item:hover {
-            background: #333;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(75, 61, 166, 0.3);
-        }
-        .dice-item.selected {
-            background: #444;
-            color: #4B3DA6;
-            transform: translateY(0);
-            box-shadow: 0 0 6px rgba(75, 61, 166, 0.5);
-        }
-        .dice-svg {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 6px;
-            display: block;
-            transition: transform 0.2s;
-        }
-        .dice-item:hover .dice-svg {
-            transform: scale(1.1);
-        }
-        .roll-button {
-            background: #223;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 10px;
-            transition: all 0.2s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        .roll-button:hover {
-            background: #4B3DA6;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-        .roll-button:active {
-            transform: translateY(0);
-        }
-        .result {
-            font-size: 24px;
-            margin: 20px 0;
-            min-height: 40px;
-            color: #4B3DA6;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .dice {
-            animation: fade-in 0.4s ease-in-out, pop 0.4s ease-out;
-            color: #4B3DA6;
-        }
-        #selected-dice {
-            color: #4B3DA6;
-            margin: 15px 0;
-            font-size: 18px;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        #selected-dice div {
-            margin: 5px 0;
-            animation: slideIn 0.3s ease-out;
-        }
-        @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes pop {
-            0% { transform: scale(0.8); }
-            70% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        /* Стиль для постоянно вращающегося кубика */
-        .rotating-dice {
-            width: 48px;
-            height: 48px;
-            margin-left: 10px;
-            vertical-align: middle;
-            display: inline-block;
-            animation: rotate 2s linear infinite;
-        }
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .button-dice-container {
-            display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Эффект мерцания ЭЛТ-экрана */
+        body::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Стилизация разноцветного логотипа */
+        .logo {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 70px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+        .logo span:nth-child(1) { color: #4285F4; } /* N */
+        .logo span:nth-child(2) { color: #EA4335; } /* e */
+        .logo span:nth-child(3) { color: #FBBC05; } /* t */
+        .logo span:nth-child(4) { color: #4285F4; } /* c */
+        .logo span:nth-child(5) { color: #34A853; } /* o */
+        .logo span:nth-child(6) { color: #EA4335; } /* r */
+        .logo span:nth-child(7) { color: #FBBC05; } /* e */
+
+        .links-top {
+            margin-bottom: 5px;
+        }
+        .links-top a {
+            color: #ddeeaa;
+            text-decoration: underline;
+            margin: 0 4px;
+            font-size: 12px;
+        }
+        .links-top a.active {
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        form {
+            margin-bottom: 15px;
+        }
+
+        .search-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Строка поиска в стиле 2000-х */
+        input[type="text"] {
+            width: 380px;
+            padding: 3px;
+            border: 1px solid #556644;
+            background-color: #0b140b;
+            color: #ddeedd;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .side-links {
+            position: absolute;
+            left: 395px;
+            top: -5px;
+            text-align: left;
+            white-space: nowrap;
+            font-size: 11px;
+        }
+        .side-links a {
+            color: #aabf99;
+            text-decoration: underline;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+        /* Олдскульные кнопки */
+        input[type="submit"], button {
+            background-color: #152215;
+            color: #bbccaa;
+            border: 1px solid #445533;
+            padding: 2px 8px;
+            margin: 0 3px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #203320;
+            color: #ddeedd;
+        }
+
+        .welcome-text {
+            color: #889977;
+            font-size: 13px;
+            margin-top: 15px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 11px;
+        }
+        .footer a {
+            color: #aabf99;
+            text-decoration: underline;
+            margin: 0 5px;
+        }
+        .copyright {
+            color: #667755;
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
-    <h1>Cuby Dragon Vision</h1>
-    <div class="dice-box">
-        <div class="dice-selector">
-            <div class="dice-item" onclick="addDice('d4')">
-                <img class="dice-svg" src="https://dnddiceroller.org/asset/img/dice2/4.svg" alt="d4">
-            </div>
-            <div class="dice-item" onclick="addDice('d6')">
-                <img class="dice-svg" src="https://dnddiceroller.org/asset/img/dice2/6.svg" alt="d6">
-            </div>
-            <div class="dice-item" onclick="addDice('d8')">
-                <img class="dice-svg" src="https://dnddiceroller.org/asset/img/dice2/8.svg" alt="d8">
-            </div>
-            <div class="dice-item" onclick="addDice('d10')">
-                <img class="dice-svg" src="https://dnddiceroller.org/asset/img/dice2/10.svg" alt="d10">
-            </div>
-            <div class="dice-item" onclick="addDice('d12')">
-                <img class="dice-svg" src="https://dnddiceroller.org/asset/img/dice2/12.svg" alt="d12">
-            </div>
-            <div class="dice-item" onclick="addDice('d20')">
-                <img class="dice-svg" src="https://dnddiceroller.org/asset/img/dice2/20.svg" alt="d20">
-            </div>
-            <div class="dice-item" onclick="addDice('d100')">
-                <img class="dice-svg" src="https://dnddiceroller.org/asset/img/dice2/100.svg" alt="d100">
-            </div>
-        </div>
-        <div id="selected-dice"></div>
-        <div class="button-dice-container">
-            <button class="roll-button" onclick="rollDice()">Бросить кубики</button>
-            <img class="rotating-dice" src="https://dnddiceroller.org/asset/img/dice2/6.svg" alt="Кубик">
-        </div>
-        <div class="result" id="result"></div>
+
+<div class="container">
+    <!-- Логотип Netcore -->
+    <div class="logo">
+        <span>N</span><span>e</span><span>t</span><span>c</span><span>o</span><span>r</span><span>e</span>
     </div>
 
-    <script>
-        let diceList = [];
-        const diceMax = {
-            'd4': 4,
-            'd6': 6,
-            'd8': 8,
-            'd10': 10,
-            'd12': 12,
-            'd20': 20,
-            'd100': 100
-        };
+    <!-- Верхние вкладки -->
+    <div class="links-top">
+        <a class="active" href="#">Web</a>
+        <a href="#">Images</a>
+        <a href="#">Groups</a>
+        <a href="#">News</a>
+        <a href="#">Froogle</a>
+        <a href="#">more »</a>
+    </div>
 
-        function addDice(type) {
-            diceList.push(type);
-            updateDiceList();
-        }
+    <!-- Форма поиска (ведет в реальный Google) -->
+    <form action="https://google.com" method="GET">
+        <div class="search-wrapper">
+            <input type="text" name="q" autofocus autocomplete="off">
+            <div class="side-links">
+                <a href="#">Advanced Search</a>
+                <a href="#">Preferences</a>
+                <a href="#">Language Tools</a>
+            </div>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="Search">
+            <button type="button" onclick="location.href='https://google.com?q=Special+retro+dossier&btnI=I'">I'm Feeling Lucky</button>
+        </div>
+    </form>
 
-        function updateDiceList() {
-            const container = document.getElementById('selected-dice');
-            container.innerHTML = '';
-            const unique = {};
-            diceList.forEach(item => {
-                unique[item] = (unique[item] || 0) + 1;
-            });
-            for (const type in unique) {
-                const div = document.createElement('div');
-                div.innerHTML = `${type}: ${unique[type]} шт.`;
-                container.appendChild(div);
-            }
-        }
+    <div class="welcome-text">Добро пожаловать в канал</div>
 
-        function rollDice() {
-            const resultElement = document.getElementById('result');
-            resultElement.innerHTML = '';
-            let total = 0;
-            let results = [];
-            diceList.forEach(type => {
-                const value = Math.floor(Math.random() * diceMax[type]) + 1;
-                results.push(`${type}: <span class="dice">${value}</span>`);
-                total += value;
-            });
-            resultElement.innerHTML = results.join('<br>') + '<br><strong>Сумма: ' + total + '</strong>';
-            diceList = [];
-            updateDiceList();
-        }
-    </script>
+    <!-- Подвал страницы -->
+    <div class="footer">
+        <a href="#">Advertising Programs</a> - <a href="#">About Netcore</a>
+        <div class="copyright">©2026 Netcore - Searching 8,058,044,651 web pages</div>
+    </div>
+</div>
+
 </body>
 </html>
