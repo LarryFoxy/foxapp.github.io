@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Netcore</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6963/6963813.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Caslon+Condensed:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #050a05;
-            /* В качестве фона используется атмосферная текстура старых мониторов */
-            background-image: linear-gradient(rgba(0, 20, 0, 0.85), rgba(0, 20, 0, 0.85)), 
-                              url('https://unsplash.com');
+            background-image: linear-gradient(rgba(0, 20, 0, 0.85), rgba(0, 20, 0, 0.85)),
+                              url('https://optim.tildacdn.com/tild6435-3335-4132-a436-633033386636/-/format/webp/Group_6.jpg.webp');
             background-size: cover;
             background-position: center;
             color: #bbccaa;
@@ -22,19 +25,21 @@
             margin: 0;
             overflow: hidden;
         }
-
-        /* Эффект мерцания ЭЛТ-экрана */
         body::after {
             content: " ";
             display: block;
             position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background:
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
             z-index: 2;
             background-size: 100% 4px, 6px 100%;
             pointer-events: none;
         }
-
         .container {
             text-align: center;
             position: relative;
@@ -42,23 +47,126 @@
             width: 100%;
             max-width: 600px;
         }
-
-        /* Стилизация разноцветного логотипа */
         .logo {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 70px;
-            font-weight: normal;
+            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+            font-weight: 900;
+            font-size: 86px;
             margin-bottom: 10px;
             letter-spacing: -2px;
+            user-select: none;
         }
-        .logo span:nth-child(1) { color: #4285F4; } /* N */
-        .logo span:nth-child(2) { color: #EA4335; } /* e */
-        .logo span:nth-child(3) { color: #FBBC05; } /* t */
-        .logo span:nth-child(4) { color: #4285F4; } /* c */
-        .logo span:nth-child(5) { color: #34A853; } /* o */
-        .logo span:nth-child(6) { color: #EA4335; } /* r */
-        .logo span:nth-child(7) { color: #FBBC05; } /* e */
-
+        .logo span:nth-child(1) {
+            display: inline-block;
+            color: transparent !important;
+            background-image: linear-gradient(
+                180deg,
+                #7390f0 0%,
+                #587bed 30%,
+                #1e3375 60%,
+                #162454 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter:
+                drop-shadow(0 1px 0 rgba(0, 0, 0, 0.95))
+                drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.28));
+        }
+        .logo span:nth-child(2) {
+            display: inline-block;
+            color: transparent !important;
+            background-image: linear-gradient(
+                180deg,
+                #8f2125 0%,
+                #8f2125 50%,
+                #70181b 65%,
+                #400e10 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter:
+                drop-shadow(0 1px 0 rgba(0, 0, 0, 0.95))
+                drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.28));
+        }
+        .logo span:nth-child(3) {
+            display: inline-block;
+            color: transparent !important;
+            background-image: linear-gradient(
+                180deg,
+                #c6c916 0%,
+                #c6c916 20%,
+                #b0b314 40%,
+                #262604 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter:
+                drop-shadow(0 1px 0 rgba(0, 0, 0, 0.95))
+                drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.28));
+        }
+        .logo span:nth-child(4) {
+            display: inline-block;
+            color: transparent !important;
+            background-image: linear-gradient(
+                180deg,
+                #7390f0 0%,
+                #7390f0 40%,
+                #1e3375 60%,
+                #162454 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter:
+                drop-shadow(0 1px 0 rgba(0, 0, 0, 0.95))
+                drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.28));
+        }
+        .logo span:nth-child(5) {
+            display: inline-block;
+            color: transparent !important;
+            background-image: linear-gradient(
+                180deg,
+                #14c929 0%,
+                #14c929 40%,
+                #0f911e 60%,
+                #074a0f 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter:
+                drop-shadow(0 1px 0 rgba(0, 0, 0, 0.95))
+                drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.28));
+        }
+        .logo span:nth-child(6) {
+            display: inline-block;
+            color: transparent !important;
+            background-image: linear-gradient(
+                180deg,
+                #8f2125 0%,
+                #8f2125 50%,
+                #70181b 65%,
+                #400e10 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter:
+                drop-shadow(0 1px 0 rgba(0, 0, 0, 0.95))
+                drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.28));
+        }
+        .logo span:nth-child(7) {
+            display: inline-block;
+            color: transparent !important;
+            background-image: linear-gradient(
+                180deg,
+                #c6c916 0%,
+                #c6c916 20%,
+                #b0b314 40%,
+                #262604 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter:
+                drop-shadow(0 1px 0 rgba(0, 0, 0, 0.95))
+                drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.28));
+        }
         .links-top {
             margin-bottom: 5px;
         }
@@ -73,17 +181,13 @@
             color: #fff;
             text-decoration: none;
         }
-
         form {
             margin-bottom: 15px;
         }
-
         .search-wrapper {
             display: inline-block;
             position: relative;
         }
-
-        /* Строка поиска в стиле 2000-х */
         input[type="text"] {
             width: 380px;
             padding: 3px;
@@ -93,7 +197,6 @@
             font-size: 14px;
             outline: none;
         }
-
         .side-links {
             position: absolute;
             left: 395px;
@@ -108,12 +211,11 @@
             display: block;
             line-height: 1.2;
         }
-
         .buttons {
             margin-top: 10px;
         }
-        /* Олдскульные кнопки */
-        input[type="submit"], button {
+        input[type="submit"],
+        button {
             background-color: #152215;
             color: #bbccaa;
             border: 1px solid #445533;
@@ -122,11 +224,11 @@
             cursor: pointer;
             font-size: 13px;
         }
-        input[type="submit"]:hover, button:hover {
+        input[type="submit"]:hover,
+        button:hover {
             background-color: #203320;
             color: #ddeedd;
         }
-
         .welcome-text {
             color: #889977;
             font-size: 13px;
@@ -134,7 +236,6 @@
             text-decoration: underline;
             cursor: pointer;
         }
-
         .footer {
             margin-top: 40px;
             font-size: 11px;
@@ -151,47 +252,75 @@
     </style>
 </head>
 <body>
-
 <div class="container">
-    <!-- Логотип Netcore -->
     <div class="logo">
         <span>N</span><span>e</span><span>t</span><span>c</span><span>o</span><span>r</span><span>e</span>
     </div>
-
-    <!-- Верхние вкладки -->
     <div class="links-top">
         <a class="active" href="#">Web</a>
-        <a href="#">Images</a>
-        <a href="#">Groups</a>
-        <a href="#">News</a>
-        <a href="#">Froogle</a>
+        <a href="https://jutu.pl/ru">Images</a>
+        <a href="https://www.youtube.com" target="_blank">Youtube</a>
+        <a href="https://www.youtube.com/@alexandrshtefanov">News</a>
+        <a href="https://m-fur.ru/furmap/">Map</a>
+        <a href="https://pawchive.pw/artists">Pawchive</a>
         <a href="#">more »</a>
     </div>
-
-    <!-- Форма поиска (ведет в реальный Google) -->
-    <form action="https://google.com" method="GET">
+    <form id="searchForm" action="javascript:void(0);">
         <div class="search-wrapper">
-            <input type="text" name="q" autofocus autocomplete="off">
+            <input type="text" id="queryInput" autofocus autocomplete="off" required>
             <div class="side-links">
-                <a href="#">Advanced Search</a>
+                <a href="https://www.wikipedia.org/">Advanced Search</a>
                 <a href="#">Preferences</a>
-                <a href="#">Language Tools</a>
+                <a href="https://translate.google.com/?sl=en&tl=ru&op=translate">Language Tools</a>
             </div>
         </div>
         <div class="buttons">
-            <input type="submit" value="Search">
-            <button type="button" onclick="location.href='https://google.com?q=Special+retro+dossier&btnI=I'">I'm Feeling Lucky</button>
+            <input type="submit" value="Search" id="searchBtn">
+            <button type="button" id="luckyBtn">I'm Feeling Lucky</button>
         </div>
     </form>
-
-    <div class="welcome-text">Добро пожаловать в канал</div>
-
-    <!-- Подвал страницы -->
+    <div class="welcome-text">Everything on the internet is forever</div>
     <div class="footer">
-        <a href="#">Advertising Programs</a> - <a href="#">About Netcore</a>
-        <div class="copyright">©2026 Netcore - Searching 8,058,044,651 web pages</div>
+        <a href="#">Advertising Programs</a> - <a href="https://www.youtube.com/@LarryFoxChannel" target="_blank">About Netcore</a>
+        <div class="copyright">©2006 Netcore - Searching 6,666,666,666 web pages</div>
     </div>
 </div>
-
+<script>
+    const form = document.getElementById('searchForm');
+    const input = document.getElementById('queryInput');
+    const luckyBtn = document.getElementById('luckyBtn');
+    
+    function executeSearch(isLucky = false) {
+        const query = input.value.trim();
+        if (!query) {
+            input.focus();
+            return;
+        }
+        let targetUrl;
+        if (isLucky) {
+            // Поиск видеороликов на YouTube
+            targetUrl = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(query) + '&sp=EgIQAQ%253D%253D';
+        } else {
+            targetUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+        }
+        window.top.location.href = targetUrl;
+    }
+    
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        executeSearch(false);
+    });
+    
+    luckyBtn.addEventListener('click', function () {
+        executeSearch(true);
+    });
+    
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            executeSearch(false);
+        }
+    });
+</script>
 </body>
 </html>
